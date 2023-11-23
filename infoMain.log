@@ -1,0 +1,12 @@
+22:41:56.156 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+22:41:56.163 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+22:41:56.170 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+22:41:56.171 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+22:41:56.182 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=8 mediaContent=true complexityApp=2}
+22:41:56.182 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+22:41:56.183 [main] INFO  com.solvd.it_company.Main - 6184$
+22:41:56.191 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+22:41:56.200 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+22:41:56.210 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+22:41:56.210 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+

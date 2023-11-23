@@ -1,0 +1,6 @@
+Customer{Name='Mariya
+ Surname='Vasulivska
+ RegularCustomer=true
+ Application=Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+ Customer`s budget= 15000
+}
