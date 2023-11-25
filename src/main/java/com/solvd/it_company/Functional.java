@@ -17,6 +17,16 @@ public class Functional {
         this.complexityApp = complexityApp;
     }
 
+    @Override
+    public String toString() {
+        return "Functional{" +
+                " system=" + system.toString() +
+                " numberOfTasks=" + numberOfTasks +
+                " mediaContent=" + mediaContent +
+                " complexityApp=" + complexityApp +
+                '}';
+    }
+
     public Set<String> getSystem() {
         return system;
     }
@@ -47,15 +57,5 @@ public class Functional {
 
     public void setComplexityApp(int complexityApp) {
         this.complexityApp = complexityApp;
-    }
-
-    @Override
-    public String toString() {
-        return "Functional{" +
-                " system=" + system.toString() +
-                " numberOfTasks=" + numberOfTasks +
-                " mediaContent=" + mediaContent +
-                " complexityApp=" + complexityApp +
-                '}';
     }
 }

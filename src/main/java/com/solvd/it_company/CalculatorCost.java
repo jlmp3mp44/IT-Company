@@ -4,7 +4,6 @@ import com.solvd.it_company.exceptions.CostApplicationExpensiveException;
 import com.solvd.it_company.exceptions.PriceDeviceZeroOrLessException;
 import com.solvd.it_company.exceptions.SalaryZeroOrLessException;
 import com.solvd.it_company.interfaces.CalculatorCostInterface;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,63 +19,6 @@ public final class CalculatorCost implements CalculatorCostInterface {
     public CalculatorCost(Customer customer, Functional functional, Company company) {
         this.customer = customer;
         this.functional = functional;
-        this.company = company;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Application getApplication() {
-        return customer.getApplication();
-    }
-
-    public Functional getFunctional() {
-        return functional;
-    }
-
-    public void setFunctional(Functional functional) {
-        this.functional = functional;
-    }
-
-    public Team getTeam() {
-        return company.getTeam();
-    }
-
-    public Set<Developer> getDevelopers() {
-        return getTeam().getDevelopers();
-    }
-
-    public Set<Manager> getManagers() {
-        return getTeam().getManagers();
-    }
-
-    public Set<QAEngineer> getQaEngineers() {
-        return getTeam().getQaEngineers();
-    }
-
-    public Technicks getTechnicks() {
-        return company.getTechnicks();
-    }
-
-    public LinkedList<LapTop> getLapTops() {
-        return getTechnicks().getLapTops();
-    }
-
-    public LinkedList<Mouse> getMouses() {
-        return getTechnicks().getMouses();
-    }
-
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
         this.company = company;
     }
 
@@ -167,6 +109,63 @@ public final class CalculatorCost implements CalculatorCostInterface {
             throw new CostApplicationExpensiveException
                     ("Customer hasn`t enough money for this application. Price high.");
         }
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Application getApplication() {
+        return customer.getApplication();
+    }
+
+    public Functional getFunctional() {
+        return functional;
+    }
+
+    public void setFunctional(Functional functional) {
+        this.functional = functional;
+    }
+
+    public Team getTeam() {
+        return company.getTeam();
+    }
+
+    public Set<Developer> getDevelopers() {
+        return getTeam().getDevelopers();
+    }
+
+    public Set<Manager> getManagers() {
+        return getTeam().getManagers();
+    }
+
+    public Set<QAEngineer> getQaEngineers() {
+        return getTeam().getQaEngineers();
+    }
+
+    public Technicks getTechnicks() {
+        return company.getTechnicks();
+    }
+
+    public LinkedList<LapTop> getLapTops() {
+        return getTechnicks().getLapTops();
+    }
+
+    public LinkedList<Mouse> getMouses() {
+        return getTechnicks().getMouses();
+    }
+
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
 

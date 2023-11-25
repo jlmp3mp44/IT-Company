@@ -19,19 +19,6 @@ abstract class Employee implements FullNameableInterface, Comparable<Employee> {
         this.surname = surname;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String getSurname() {
-        return surname;
-    }
-
-    public final int getBaseSalary() {
-        return BASE_SALARY;
-    }
 
     //distribution of tasks to workers
     public static final int getTasksForEveryOne(Functional functional) {
@@ -49,12 +36,26 @@ abstract class Employee implements FullNameableInterface, Comparable<Employee> {
                 ("Num of tasks for every employee is incorrect:" + tasksForEveryOne);
     }
 
-    protected abstract int getFullSalary();
-
     @Override
     public int compareTo(Employee o) {
         return this.getSurname().compareTo(o.getSurname());
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getSurname() {
+        return surname;
+    }
+
+    public final int getBaseSalary() {
+        return BASE_SALARY;
+    }
+
+    protected abstract int getFullSalary();
 }
 
 

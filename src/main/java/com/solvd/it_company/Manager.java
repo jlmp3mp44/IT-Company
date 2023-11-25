@@ -13,15 +13,6 @@ public class Manager extends Employee {
         this.experience = experience;
     }
 
-    public int getNumOfEmployees() {
-        return numOfEmployees;
-    }
-
-    public void setNumOfEmployees(int numOfEmployees) {
-        this.numOfEmployees = numOfEmployees;
-    }
-
-
     @Override
     public int getFullSalary() {
         return getBaseSalary() + numOfEmployees * 1000 + experience * 200;
@@ -49,6 +40,14 @@ public class Manager extends Employee {
                 " Salary=" + getFullSalary() +
                 " numOfEmployees in control=" + numOfEmployees +
                 '}';
+    }
+
+    public int getNumOfEmployees() {
+        return numOfEmployees;
+    }
+
+    public void setNumOfEmployees(int numOfEmployees) {
+        this.numOfEmployees = numOfEmployees;
     }
 
 }

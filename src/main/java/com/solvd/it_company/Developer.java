@@ -13,14 +13,6 @@ public class Developer extends Employee {
         this.level = level;
     }
 
-    public int getNumOfTasks() {
-        return numOfTasks;
-    }
-
-    public void setNumOfTasks(int numOfTasks) {
-        this.numOfTasks = numOfTasks;
-    }
-
     public int getLevel() {
         switch (level) {
             case "Jun":
@@ -62,5 +54,14 @@ public class Developer extends Employee {
                 " numOfTasks=" + numOfTasks +
                 '}';
     }
+
+    public int getNumOfTasks() {
+        return numOfTasks;
+    }
+
+    public void setNumOfTasks(int numOfTasks) {
+        this.numOfTasks = numOfTasks;
+    }
+
 
 }

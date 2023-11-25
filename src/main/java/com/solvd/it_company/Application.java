@@ -15,6 +15,15 @@ public class Application implements NameableInterface {
     }
 
     @Override
+    public String toString() {
+        return "Application{" +
+                "name='" + name + '\'' +
+                " timeToMake=" + timeToMake + " months" +
+                " description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
     public String getName() {
         return name;
     }
@@ -27,14 +36,5 @@ public class Application implements NameableInterface {
 
     public String getDecription() {
         return description;
-    }
-
-    @Override
-    public String toString() {
-        return "Application{" +
-                "name='" + name + '\'' +
-                " timeToMake=" + timeToMake + " months" +
-                " description='" + description + '\'' +
-                '}';
     }
 }

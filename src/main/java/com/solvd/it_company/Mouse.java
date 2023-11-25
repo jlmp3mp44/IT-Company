@@ -12,14 +12,6 @@ public class Mouse extends Device {
         this.hasSensor = hasSensor;
     }
 
-    public boolean isWireless() {
-        return wireless;
-    }
-
-    public boolean isHasSensor() {
-        return hasSensor;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,5 +34,13 @@ public class Mouse extends Device {
                 " Is Wireless?=" + isWireless() +
                 " Has Sensor?=" + hasSensor +
                 '}';
+    }
+
+    public boolean isWireless() {
+        return wireless;
+    }
+
+    public boolean isHasSensor() {
+        return hasSensor;
     }
 }
