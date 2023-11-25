@@ -1,12 +1,13 @@
 package com.solvd.it_company;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
 
 public class Main {
@@ -30,6 +31,7 @@ public class Main {
         minCostMouse = 50;
         maxCostMouse = 150;
     }
+
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
@@ -86,6 +88,9 @@ public class Main {
         //Write info about customer to the file
         customer.writeInfoToTheFile();
         LOGGER.info("Wrote info about customer to the file infoCustomer.txt");
+        LOGGER.info("The number of the Unique Words from the file starryNightAestetic.txt");
+        int uniqueWords =   findNumberUniqueWords("D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/starryNightAestetic.txt");
+        LOGGER.info(uniqueWords);
         LOGGER.info("PROJECT END \n");
     }
 
@@ -130,4 +135,23 @@ public class Main {
         return devices;
     }
 
+    public static int findNumberUniqueWords(String filePath) {
+        Set<String> uniqueWords = new HashSet<>();
+        try {
+            List<String> lines = FileUtils.readLines(new File(filePath));
+            uniqueWords = new HashSet<>();
+            for (String line : lines) {
+                String[] wordsSplit = StringUtils.split(line);
+                for (String word : wordsSplit) {
+                    word = word.replaceAll("[^a-zA-Z]", "");
+                    if (!word.isEmpty()) {
+                        uniqueWords.add(word.toLowerCase());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.error("Error occured " + e.getMessage());
+        }
+        return uniqueWords.size();
+    }
 }

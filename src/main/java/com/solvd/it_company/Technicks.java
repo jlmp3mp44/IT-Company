@@ -20,22 +20,6 @@ public class Technicks implements InfoInterface {
         this.mouses = mouses;
     }
 
-    public LinkedList<LapTop> getLapTops() {
-        return lapTops;
-    }
-
-    public void setLapTops(LinkedList<LapTop> lapTops) {
-        this.lapTops = lapTops;
-    }
-
-    public LinkedList<Mouse> getMouses() {
-        return mouses;
-    }
-
-    public void setMouses(LinkedList<Mouse> mouses) {
-        this.mouses = mouses;
-    }
-
     //get the main information about technicks, names of devices, and their properties
     public final String getInfo() {
         String result = "";
@@ -60,6 +44,22 @@ public class Technicks implements InfoInterface {
         } catch (IOException e) {
             LOGGER.error("Error ocured " + e.getMessage());
         }
+    }
+
+    public LinkedList<LapTop> getLapTops() {
+        return lapTops;
+    }
+
+    public void setLapTops(LinkedList<LapTop> lapTops) {
+        this.lapTops = lapTops;
+    }
+
+    public LinkedList<Mouse> getMouses() {
+        return mouses;
+    }
+
+    public void setMouses(LinkedList<Mouse> mouses) {
+        this.mouses = mouses;
     }
 
 }

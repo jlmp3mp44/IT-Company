@@ -28,37 +28,6 @@ public class Team implements InfoInterface {
         this.nameOfTeam = nameOfTeam;
     }
 
-    public Set<Developer> getDevelopers() {
-        return developers;
-    }
-
-    public void setDevelopers(TreeSet<Developer> developers) {
-
-        this.developers = developers;
-    }
-
-    public Set<Manager> getManagers() {
-        return managers;
-    }
-
-    public void setManagers(TreeSet<Manager> managers) {
-
-        this.managers = managers;
-    }
-
-    public Set<QAEngineer> getQaEngineers() {
-
-        return qaEngineers;
-    }
-
-    public void setQaEngineers(TreeSet<QAEngineer> qaEngineers) {
-        this.qaEngineers = qaEngineers;
-    }
-
-    public String getNameOfTeam() {
-        return nameOfTeam;
-    }
-
     //get the main information about team, names and surnames of employees
     public final String getInfo() {
         int sizeOfTeam = developers.size() + managers.size() + qaEngineers.size();
@@ -99,5 +68,36 @@ public class Team implements InfoInterface {
         } catch (IOException e) {
             LOGGER.error("Error ocured " + e.getMessage());
         }
+    }
+
+    public Set<Developer> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(TreeSet<Developer> developers) {
+
+        this.developers = developers;
+    }
+
+    public Set<Manager> getManagers() {
+        return managers;
+    }
+
+    public void setManagers(TreeSet<Manager> managers) {
+
+        this.managers = managers;
+    }
+
+    public Set<QAEngineer> getQaEngineers() {
+
+        return qaEngineers;
+    }
+
+    public void setQaEngineers(TreeSet<QAEngineer> qaEngineers) {
+        this.qaEngineers = qaEngineers;
+    }
+
+    public String getNameOfTeam() {
+        return nameOfTeam;
     }
 }

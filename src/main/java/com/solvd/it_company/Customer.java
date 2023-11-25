@@ -28,6 +28,28 @@ public final class Customer implements FullNameableInterface {
     }
 
     @Override
+    public String toString() {
+        return "Customer{" +
+                "Name='" + name + '\n' +
+                " Surname='" + surname + '\n' +
+                " RegularCustomer=" + regularCustomer + '\n' +
+                " Application=" + application + '\n' +
+                " Customer`s budget= " + budget + '\n' +
+                '}';
+    }
+
+    public void writeInfoToTheFile() {
+        try (FileOutputStream customer = new FileOutputStream("D:\\Course_testimg\\Course\\src\\com\\" +
+                "solvd\\laba\\oop\\files\\infoCustomer.txt")) {
+            byte[] buffer = toString().getBytes();
+            customer.write(buffer);
+        } catch (FileNotFoundException e) {
+            LOGGER.error(e.getMessage());
+        } catch (IOException e) {
+            LOGGER.error("Error occured " + e.getMessage());
+        }
+    }
+    @Override
     public String getName() {
         return name;
     }
@@ -57,26 +79,4 @@ public final class Customer implements FullNameableInterface {
         return budget;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "Name='" + name + '\n' +
-                " Surname='" + surname + '\n' +
-                " RegularCustomer=" + regularCustomer + '\n' +
-                " Application=" + application + '\n' +
-                " Customer`s budget= " + budget + '\n' +
-                '}';
-    }
-
-    public void writeInfoToTheFile() {
-        try (FileOutputStream customer = new FileOutputStream("D:\\Course_testimg\\Course\\src\\com\\" +
-                "solvd\\laba\\oop\\files\\infoCustomer.txt")) {
-            byte[] buffer = toString().getBytes();
-            customer.write(buffer);
-        } catch (FileNotFoundException e) {
-            LOGGER.error(e.getMessage());
-        } catch (IOException e) {
-            LOGGER.error("Error occured " + e.getMessage());
-        }
-    }
 }

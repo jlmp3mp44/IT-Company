@@ -16,6 +16,24 @@ public final class Company implements NameableInterface {
         this.technicks = technicks;
     }
 
+
+    //set the number of employees depends on tasks in application
+    public static int setNumOfDevelopes(Functional functional) {
+        int numOfTasks = functional.getNumberOfTasks();
+        int numOfDevelopers = numOfTasks / 5;
+        return numOfDevelopers;
+    }
+
+    public static int setNumOfManagers(Functional functional) {
+        int numOfManagers = functional.getComplexityApp() / 2 + 1;
+        return numOfManagers;
+    }
+
+    public static int setNumOfQA(Functional functional) {
+        int numOfQA = setNumOfDevelopes(functional);
+        return numOfQA;
+    }
+
     @Override
     public String getName() {
         return name;
@@ -48,23 +66,6 @@ public final class Company implements NameableInterface {
 
     public void setTechnicks(Technicks technicks) {
         this.technicks = technicks;
-    }
-
-    //set the number of employees depends on tasks in application
-    public static int setNumOfDevelopes(Functional functional) {
-        int numOfTasks = functional.getNumberOfTasks();
-        int numOfDevelopers = numOfTasks / 5;
-        return numOfDevelopers;
-    }
-
-    public static int setNumOfManagers(Functional functional) {
-        int numOfManagers = functional.getComplexityApp() / 2 + 1;
-        return numOfManagers;
-    }
-
-    public static int setNumOfQA(Functional functional) {
-        int numOfQA = setNumOfDevelopes(functional);
-        return numOfQA;
     }
 
 }

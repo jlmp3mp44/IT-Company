@@ -13,29 +13,6 @@ public class QAEngineer extends Employee {
         this.level = level;
     }
 
-    public int getNumOfTasks() {
-        return numOfTasks;
-    }
-
-    public void setNumOfTasks(int numOfTasks) {
-        this.numOfTasks = numOfTasks;
-    }
-
-    public int getLevel() {
-        switch (level) {
-            case "Jun":
-                levelInt = 1;
-            case "Middle":
-                levelInt = 2;
-            case "Senior":
-                levelInt = 3;
-        }
-        return levelInt;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
 
     @Override
     public int getFullSalary() {
@@ -64,6 +41,30 @@ public class QAEngineer extends Employee {
                 " Salary=" + getFullSalary() +
                 " numOfTasks=" + numOfTasks +
                 '}';
+    }
+
+    public int getNumOfTasks() {
+        return numOfTasks;
+    }
+
+    public void setNumOfTasks(int numOfTasks) {
+        this.numOfTasks = numOfTasks;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public int getLevel() {
+        switch (level) {
+            case "Jun":
+                levelInt = 1;
+            case "Middle":
+                levelInt = 2;
+            case "Senior":
+                levelInt = 3;
+        }
+        return levelInt;
     }
 }
 

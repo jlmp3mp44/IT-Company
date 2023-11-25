@@ -12,14 +12,6 @@ class LapTop extends Device {
         this.memorySize = memorySize;
     }
 
-    public double getScreenSize() {
-        return screenSize;
-    }
-
-    public int getMemorySize() {
-        return memorySize;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,5 +34,13 @@ class LapTop extends Device {
                 " ScreenSize=" + getScreenSize() +
                 " MemorySize=" + getMemorySize() +
                 '}';
+    }
+
+    public double getScreenSize() {
+        return screenSize;
+    }
+
+    public int getMemorySize() {
+        return memorySize;
     }
 }
