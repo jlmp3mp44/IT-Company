@@ -88,9 +88,8 @@ public class Main {
         //Write info about customer to the file
         customer.writeInfoToTheFile();
         LOGGER.info("Wrote info about customer to the file infoCustomer.txt");
-        LOGGER.info("The number of the Unique Words from the file starryNightAestetic.txt");
-        int uniqueWords =   findNumberUniqueWords("D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/starryNightAestetic.txt");
-        LOGGER.info(uniqueWords);
+        findNumberUniqueWords("D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/starryNightAestetic.txt",
+                "D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/numberUniqueWords.txt");
         LOGGER.info("PROJECT END \n");
     }
 
@@ -135,10 +134,10 @@ public class Main {
         return devices;
     }
 
-    public static int findNumberUniqueWords(String filePath) {
-        Set<String> uniqueWords = new HashSet<>();
+    public static void findNumberUniqueWords(String filePathFrom, String filePathTo) {
+        Set<String> uniqueWords;
         try {
-            List<String> lines = FileUtils.readLines(new File(filePath));
+            List<String> lines = FileUtils.readLines(new File(filePathFrom));
             uniqueWords = new HashSet<>();
             for (String line : lines) {
                 String[] wordsSplit = StringUtils.split(line);
@@ -149,9 +148,10 @@ public class Main {
                     }
                 }
             }
+            FileUtils.writeStringToFile(new File(filePathTo), Integer.toString(uniqueWords.size()), "UTF-8");
+            LOGGER.info("Number of Unique Words has been written to the file");
         } catch (IOException e) {
-            LOGGER.error("Error occured " + e.getMessage());
+            LOGGER.error("Error occured while work with files" + e.getMessage());
         }
-        return uniqueWords.size();
     }
 }
