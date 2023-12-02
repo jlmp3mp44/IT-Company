@@ -4,13 +4,17 @@ package com.solvd.it_company;
 import com.solvd.it_company.interfaces.CostableInterface;
 import com.solvd.it_company.interfaces.NameableInterface;
 
-abstract class Device implements NameableInterface, CostableInterface {
+abstract class Device implements NameableInterface, CostableInterface, Comparable<Device>{
     protected int cost;
     protected String name;
 
     public Device(int cost, String name) {
         this.cost = cost;
         this.name = name;
+    }
+    @Override
+    public int compareTo(Device o) {
+        return this.getName().compareTo(o.getName());
     }
 
     @Override

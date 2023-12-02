@@ -2,7 +2,7 @@ package com.solvd.it_company;
 
 import java.util.Objects;
 
-class LapTop extends Device {
+public class LapTop extends Device {
     private final double screenSize;
     private final int memorySize;
 

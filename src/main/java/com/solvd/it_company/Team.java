@@ -1,6 +1,7 @@
 package com.solvd.it_company;
 
 
+import com.solvd.it_company.Lambdas.WordProcessor;
 import com.solvd.it_company.exceptions.SizeOfTeamSmallException;
 import com.solvd.it_company.interfaces.InfoInterface;
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -29,28 +31,24 @@ public class Team implements InfoInterface {
     }
 
     //get the main information about team, names and surnames of employees
-    public final String getInfo() {
+    public final StringBuilder getInfo() {
         int sizeOfTeam = developers.size() + managers.size() + qaEngineers.size();
         try {
             validateSizeOfTeam(sizeOfTeam);
         } catch (SizeOfTeamSmallException e) {
             LOGGER.error(e.getMessage());
         }
-        String result = "";
-        result += "DEVELOPERS \n";
-        for (Developer developer : developers) {
-            result += developer.toString() + "\n";
-        }
-        result += "\nMANAGERS \n";
-        for (Manager manager : managers) {
-            result += manager.toString() + "\n";
-        }
-        result += "\nQA ENGINEERS \n";
-        for (QAEngineer qaEngineer : qaEngineers) {
-            result += qaEngineer.toString() + "\n";
-        }
+        StringBuilder result = new StringBuilder();
+        WordProcessor appendEmployeeInfo = (title, employees) -> {
+            result.append("\n").append(title).append("\n");
+            employees.forEach(employee -> result.append(employee.toString()).append("\n"));
+        };
+        appendEmployeeInfo.appendInfo("DEVELOPERS", developers);
+        appendEmployeeInfo.appendInfo("MANAGERS", managers);
+        appendEmployeeInfo.appendInfo("QA ENGINEERS", qaEngineers);
         return result;
     }
+
 
     public void validateSizeOfTeam(int sizeOfTeam) throws SizeOfTeamSmallException {
         if (sizeOfTeam <= 3) throw new SizeOfTeamSmallException
@@ -59,9 +57,9 @@ public class Team implements InfoInterface {
 
 
     public void writeInfoToTheFile() {
-        try (FileOutputStream allEmployees = new FileOutputStream("D:\\Course_testimg\\Course\\src\\com\\" +
-                "solvd\\laba\\oop\\files\\infoEmployees.txt")) {
-            byte[] buffer = getInfo().getBytes();
+        try (FileOutputStream allEmployees = new FileOutputStream("D:\\Course_testimg\\IT-Company\\src\\main\\java\\com\\solvd" +
+                "\\it_company\\files\\infoEmployees.txt")) {
+            byte[] buffer = getInfo().toString().getBytes();
             allEmployees.write(buffer);
         } catch (FileNotFoundException e) {
             LOGGER.error(e.getMessage());
@@ -69,6 +67,19 @@ public class Team implements InfoInterface {
             LOGGER.error("Error ocured " + e.getMessage());
         }
     }
+    public void sortEmployeesBySurname(){
+        Comparator<Employee> surnameComparator = (e1, e2) ->
+                e1.getSurname().compareToIgnoreCase(e2.getSurname());
+        developers = sortEmployees(developers, surnameComparator);
+        managers = sortEmployees(managers, surnameComparator);
+        qaEngineers = sortEmployees(qaEngineers, surnameComparator);
+    }
+    private <T extends Employee> Set<T> sortEmployees(Set<T> employees, Comparator<? super T> comparator) {
+        TreeSet<T> sortedSet = new TreeSet<>(comparator);
+        sortedSet.addAll(employees);
+        return sortedSet;
+    }
+
 
     public Set<Developer> getDevelopers() {
         return developers;

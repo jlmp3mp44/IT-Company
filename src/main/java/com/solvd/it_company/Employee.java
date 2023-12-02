@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-abstract class Employee implements FullNameableInterface, Comparable<Employee> {
+public abstract class Employee implements FullNameableInterface, Comparable<Employee> {
     private static final Logger LOGGER = LogManager.getLogger(Employee.class);
     protected static int tasksForEveryOne;
     private final String name;
