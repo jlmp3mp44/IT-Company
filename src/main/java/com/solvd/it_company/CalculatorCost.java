@@ -5,10 +5,12 @@ import com.solvd.it_company.exceptions.CostApplicationExpensiveException;
 import com.solvd.it_company.exceptions.PriceDeviceZeroOrLessException;
 import com.solvd.it_company.exceptions.SalaryZeroOrLessException;
 import com.solvd.it_company.interfaces.CalculatorCostInterface;
+import org.apache.commons.lang3.function.TriFunction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Set;
+import java.util.function.*;
 
 public final class CalculatorCost implements CalculatorCostInterface {
     private static final Logger LOGGER = LogManager.getLogger(CalculatorCost.class);
@@ -26,9 +28,14 @@ public final class CalculatorCost implements CalculatorCostInterface {
     // Sum salary every employee
     public int calculateAllSalary() {
         int totalSalary = 0;
-        totalSalary += calculateSalary(getDevelopers(), "Developer");
-        totalSalary += calculateSalary(getManagers(), "Manager");
-        totalSalary += calculateSalary(getQaEngineers(), "QA Engineer");
+        Function<Integer, Integer> allSalary = (salary) -> {
+            salary+= calculateSalary(getDevelopers(), "Developes");
+            salary+=calculateSalary(getManagers(), "Manager");
+            salary+=calculateSalary(getQaEngineers(), "QA Engineer");
+            return salary;
+
+        };
+        totalSalary = allSalary.apply(totalSalary);
 
         return totalSalary;
     }
@@ -45,6 +52,7 @@ public final class CalculatorCost implements CalculatorCostInterface {
                     return employee.getFullSalary();
                 })
                 .sum();
+
     }
 
     public void validateSalary(Employee employee, String category) throws SalaryZeroOrLessException {
@@ -82,17 +90,20 @@ public final class CalculatorCost implements CalculatorCostInterface {
     public int calculateCost() {
         int fullCost = 0;
         int additionalCost = 0;
-        additionalCost+=Company.WorkDays.MONDAY.getAdditionalCostPerDay();
-        additionalCost+=Company.WorkDays.TUESDAY.getAdditionalCostPerDay();
-        additionalCost+=Company.WorkDays.WEDNESDAY.getAdditionalCostPerDay();
-        additionalCost+=Company.WorkDays.THURSDAY.getAdditionalCostPerDay();
-        additionalCost+=Company.WorkDays.FRIDAY.getAdditionalCostPerDay();
-
-        //int time = customer.getApplication().getTimeToMake();
-        MonthsRefactorToDays timeRef = (month) -> {
-            return month * 30;
+        Function<Integer, Integer> addAdditionalCost = (cost) -> {
+            cost += Company.WorkDays.MONDAY.getAdditionalCostPerDay();
+            cost += Company.WorkDays.TUESDAY.getAdditionalCostPerDay();
+            cost += Company.WorkDays.WEDNESDAY.getAdditionalCostPerDay();
+            cost += Company.WorkDays.THURSDAY.getAdditionalCostPerDay();
+            cost += Company.WorkDays.FRIDAY.getAdditionalCostPerDay();
+            return cost;
         };
-        int time =  timeRef.monthsToDays(customer.getApplication().getTimeToMake());
+        fullCost = addAdditionalCost.apply(fullCost);
+
+        MonthsRefactorToDays<Integer, Integer,  Integer> timeRef = (month, days) -> {
+            return month * days;
+        };
+        int time =  timeRef.monthsToDays(customer.getApplication().getTimeToMake(), 30);
         int complexity = functional.getComplexityApp();
         int system = functional.getSystem().size();
         int numOfTasks = functional.getNumberOfTasks();
@@ -103,9 +114,15 @@ public final class CalculatorCost implements CalculatorCostInterface {
         int fullSalary = calculateAllSalary();
         int fullCostDevices = calculateCostDevices();
 
+        BiFunction<Integer, Integer, Integer> addTwoIntegerCosts = (num1, num2) -> num1 + num2;
+        int costEmployeesAndDevices = addTwoIntegerCosts.apply(fullSalary, fullCostDevices);
 
-        double costWithoutPercantage = (fullSalary + fullCostDevices) / 2 + (complexity * time) -
-                (system * complexity * 10) + (numOfTasks * mediaContent);
+        BiFunction<Integer, Double, Double> addTwoDiffCosts =  (num1, num2) -> num1 + num2;
+        double costFunctional = system * complexity * 10;
+        double costFuncAndEmplDev = addTwoDiffCosts.apply(costEmployeesAndDevices/2, costFunctional);
+
+        double costWithoutPercantage = costFuncAndEmplDev + (complexity * time) + (numOfTasks * mediaContent);
+
         double costWithDiscount = costWithoutPercantage - costWithoutPercantage * discount / 100;
         fullCost = (int) (costWithDiscount + costWithDiscount * percantageCompany / 100) + additionalCost;
         try {

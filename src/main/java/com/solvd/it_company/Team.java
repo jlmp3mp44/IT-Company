@@ -1,7 +1,7 @@
 package com.solvd.it_company;
 
 
-import com.solvd.it_company.Lambdas.WordProcessor;
+import com.solvd.it_company.Lambdas.WordProcessorTeam;
 import com.solvd.it_company.exceptions.SizeOfTeamSmallException;
 import com.solvd.it_company.interfaces.InfoInterface;
 import org.apache.logging.log4j.LogManager;
@@ -39,13 +39,16 @@ public class Team implements InfoInterface {
             LOGGER.error(e.getMessage());
         }
         StringBuilder result = new StringBuilder();
-        WordProcessor appendEmployeeInfo = (title, employees) -> {
+
+        WordProcessorTeam<Employee, String> appendEmployeeInfo = (title, employees) -> {
             result.append("\n").append(title).append("\n");
             employees.forEach(employee -> result.append(employee.toString()).append("\n"));
         };
+
         appendEmployeeInfo.appendInfo("DEVELOPERS", developers);
         appendEmployeeInfo.appendInfo("MANAGERS", managers);
         appendEmployeeInfo.appendInfo("QA ENGINEERS", qaEngineers);
+
         return result;
     }
 

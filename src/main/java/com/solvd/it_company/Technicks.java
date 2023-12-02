@@ -1,7 +1,8 @@
 package com.solvd.it_company;
 
 
-import com.solvd.it_company.Lambdas.WordProcessor;
+import com.solvd.it_company.Lambdas.WordProcessorTeam;
+import com.solvd.it_company.Lambdas.WordProcessorTechnicks;
 import com.solvd.it_company.interfaces.InfoInterface;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,7 +26,7 @@ public class Technicks implements InfoInterface {
     //get the main information about technicks, names of devices, and their properties
     public final StringBuilder getInfo() {
         StringBuilder result = new StringBuilder();
-        WordProcessor appendDevicesInfo = (title, devices) -> {
+        WordProcessorTechnicks<Device, String> appendDevicesInfo = (title, devices) -> {
             result.append("\n").append(title).append("\n");
             devices.forEach(device -> result.append(device.toString()).append("\n"));
         };
