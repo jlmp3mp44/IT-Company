@@ -1,5 +1,6 @@
 package com.solvd.it_company;
 
+import com.solvd.it_company.Lambdas.MonthsRefactorToDays;
 import com.solvd.it_company.exceptions.CostApplicationExpensiveException;
 import com.solvd.it_company.exceptions.PriceDeviceZeroOrLessException;
 import com.solvd.it_company.exceptions.SalaryZeroOrLessException;
@@ -33,6 +34,7 @@ public final class CalculatorCost implements CalculatorCostInterface {
     }
 
     private int calculateSalary(Set<? extends Employee> employees, String category) {
+
         return employees.stream()
                 .mapToInt(employee -> {
                     try {
@@ -58,18 +60,17 @@ public final class CalculatorCost implements CalculatorCostInterface {
         return costLapTops + costMouses;
     }
 
-    public int calculateCostDevices(LinkedList<? extends Device> devices, String category) {
-        int costDevice = 0;
-
-        for (Device device : devices) {
-            try {
-                validateCOstDevices(device, category);
-            } catch (PriceDeviceZeroOrLessException e) {
-                LOGGER.error(e.getMessage());
-            }
-            costDevice += device.getCost();
-        }
-        return costDevice;
+    public int calculateCostDevices(Set<? extends Device> devices, String category) {
+        return devices.stream()
+                .mapToInt(device -> {
+                    try {
+                        validateCOstDevices(device, category);
+                    } catch (PriceDeviceZeroOrLessException e) {
+                        LOGGER.error(e.getMessage());
+                    }
+                    return device.getCost();
+                })
+                .sum();
     }
 
     public void validateCOstDevices(Device device, String category) throws PriceDeviceZeroOrLessException {
@@ -80,7 +81,18 @@ public final class CalculatorCost implements CalculatorCostInterface {
     //calculate the full cost of application
     public int calculateCost() {
         int fullCost = 0;
-        int time = customer.getApplication().getTimeToMake();
+        int additionalCost = 0;
+        additionalCost+=Company.WorkDays.MONDAY.getAdditionalCostPerDay();
+        additionalCost+=Company.WorkDays.TUESDAY.getAdditionalCostPerDay();
+        additionalCost+=Company.WorkDays.WEDNESDAY.getAdditionalCostPerDay();
+        additionalCost+=Company.WorkDays.THURSDAY.getAdditionalCostPerDay();
+        additionalCost+=Company.WorkDays.FRIDAY.getAdditionalCostPerDay();
+
+        //int time = customer.getApplication().getTimeToMake();
+        MonthsRefactorToDays timeRef = (month) -> {
+            return month * 30;
+        };
+        int time =  timeRef.monthsToDays(customer.getApplication().getTimeToMake());
         int complexity = functional.getComplexityApp();
         int system = functional.getSystem().size();
         int numOfTasks = functional.getNumberOfTasks();
@@ -95,7 +107,7 @@ public final class CalculatorCost implements CalculatorCostInterface {
         double costWithoutPercantage = (fullSalary + fullCostDevices) / 2 + (complexity * time) -
                 (system * complexity * 10) + (numOfTasks * mediaContent);
         double costWithDiscount = costWithoutPercantage - costWithoutPercantage * discount / 100;
-        fullCost = (int) (costWithDiscount + costWithDiscount * percantageCompany / 100);
+        fullCost = (int) (costWithDiscount + costWithDiscount * percantageCompany / 100) + additionalCost;
         try {
             validateBudgetAndPrice(fullCost);
         } catch (CostApplicationExpensiveException e) {
@@ -110,6 +122,7 @@ public final class CalculatorCost implements CalculatorCostInterface {
                     ("Customer hasn`t enough money for this application. Price high.");
         }
     }
+
 
     public Customer getCustomer() {
         return customer;
@@ -151,11 +164,11 @@ public final class CalculatorCost implements CalculatorCostInterface {
         return company.getTechnicks();
     }
 
-    public LinkedList<LapTop> getLapTops() {
+    public Set<LapTop> getLapTops() {
         return getTechnicks().getLapTops();
     }
 
-    public LinkedList<Mouse> getMouses() {
+    public Set<Mouse> getMouses() {
         return getTechnicks().getMouses();
     }
 

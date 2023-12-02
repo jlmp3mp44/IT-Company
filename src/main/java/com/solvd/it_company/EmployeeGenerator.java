@@ -10,77 +10,68 @@ public class EmployeeGenerator {
     static int levelIndex = 0;
     static int experienceIndex = 0;
 
-    protected enum Names {
-        John, Mary, David, Sarah, Michael, Emily, William, Emma, James, Olivia, Benjamin, Sophia, Daniel, Mia, Aleksa, Poli
-    }
+    protected enum EmployeesEnum {
+        JOHN("John", "Smith", "Jun", 4),
+        MARY("Mary", "Jhonson", "Middle", 4),
+        DAVID("David","Brown", "Senior", 5),
+        SARAH("Sarah","Lee", "Jun", 1),
+        MICHAEL("Michael","Wilson", "Jun", 1),
+        EMILY("Emily","Davis", "Jun", 1),
+        WILLAM("William","Jones", "Senior", 6),
+        EMMA("Emma","Miller", "Senior", 4),
+        JAMES("James","Taylor", "Jun", 3),
+        OLIVIA("Olivia","Anerson", "Middle", 4),
+        BENJAMIN("Benjamin","White", "Middle", 4),
+        SOPHIA("Sophia","Harris", "Middle", 5),
+        DANIEL("Daniel","Clark", "Jun", 2),
+        MIA("Mia","Walker", "Jun", 2),
+        ALEKSA("Aleksa","Parker", "Jun", 2),
+        POLINA("Polina","Sothu", "Jun", 2);
 
-    protected enum Surnames {
-        Smith, Johnson, Brown, Lee, Wilson, Davis, Jones, Miller, Taylor, Anderson, White, Harris, Clark, Walker, Parker, Southy
-    }
+        private String name;
+        private String surname;
+        private String level;
+        private Integer experience;
+        EmployeesEnum(String name, String surname, String level, Integer experience){
+            this.name =  name;
+            this.surname =  surname;
+            this.level =  level;
+            this.experience =  experience;
+        }
 
-    protected static List<String> levels = new ArrayList<>();
-    // protected static int[] experiences = new int[]{1, 5, 3, 4, 2, 5, 4, 2, 6, 3, 5, 6, 2, 5, 3};
-    protected static List<Integer> experiences = new ArrayList<>();
+        public String getSurname() {
+            return surname;
+        }
 
-    //methods to iterate the properties of employees
-    static {
-        levels.add("Jun");
-        levels.add("Middle");
-        levels.add("Senior");
-        levels.add("Jun");
-        levels.add("Jun");
-        levels.add("Senior");
-        levels.add("Miidle");
-        levels.add("Middle");
-        levels.add("Middle");
-        levels.add("Jun");
-        levels.add("Middle");
-        levels.add("Senior");
-        levels.add("Senior");
-        levels.add("Middle");
-        levels.add("Middle");
+        public String getName() {
+            return name;
+        }
 
-        experiences.add(1);
-        experiences.add(4);
-        experiences.add(5);
-        experiences.add(3);
-        experiences.add(2);
-        experiences.add(6);
-        experiences.add(5);
-        experiences.add(4);
-        experiences.add(3);
-        experiences.add(2);
-        experiences.add(1);
-        experiences.add(5);
-        experiences.add(5);
-        experiences.add(3);
-        experiences.add(4);
+        public String getLevel() {
+            return level;
+        }
 
+        public Integer getExperience() {
+            return experience;
+        }
     }
 
     public static String getNextName() {
-        Names[] names = Names.values();
-        Names nextName = names[nameIndex];
+        EmployeesEnum[] names = EmployeesEnum.values();
+        EmployeesEnum nextName = names[nameIndex];
         nameIndex++;
         return nextName.toString();
     }
 
-    public static String getNextSurname() {
-        Surnames[] surnames = Surnames.values();
-        Surnames nextSurname = surnames[surnameIndex];
-        surnameIndex++;
-        return nextSurname.toString();
+    public static String getNextSurname(EmployeesEnum name) {
+        return name.getSurname();
     }
 
-    public static String getNextLevel() {
-        String nextLevel = levels.get(levelIndex);
-        levelIndex++;
-        return nextLevel.toString();
+    public static String getNextLevel(EmployeesEnum name) {
+       return name.getLevel();
     }
 
-    public static int getNextExperience() {
-        int nextExperience = experiences.get(experienceIndex);
-        experienceIndex++;
-        return nextExperience;
+    public static int getNextExperience(EmployeesEnum name) {
+       return name.getExperience();
     }
 }

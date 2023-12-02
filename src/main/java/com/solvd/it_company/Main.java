@@ -1,39 +1,44 @@
 package com.solvd.it_company;
 
+import com.solvd.it_company.Lambdas.CustomLogger;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.tools.Generate;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 
 public class Main {
+    enum PricesEnum{
+        MIN_COST_LAPTOP("MinCostLapTop", 400 ),
+        MAX_COST_LAPTOP("MaxCostlapTp", 1200),
+        MIN_COST_MOUSE("MinCostMouse", 50),
+        MAX_COST_MOUSE("MaxCostMouse", 150);
+        private String name;
+        private Integer price;
 
-    static long seed;
-    static Random random;
-    static int minCostLapTop;
-    static int maxCostLapTop;
+        PricesEnum(String name, Integer price) {
+            this.name = name;
+            this.price = price;
+        }
 
-    static int minCostMouse;
-    static int maxCostMouse;
-    static int randomCostDevice;
+        public String getName() {
+            return name;
+        }
 
-
-    static {
-        System.setProperty("log4j.configurationFile", "log4j2.xml");
-        seed = 12345L;
-        random = new Random(seed);
-        minCostLapTop = 400;
-        maxCostLapTop = 1200;
-        minCostMouse = 50;
-        maxCostMouse = 150;
+        public Integer getPrice() {
+            return price;
+        }
     }
-
-
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
+    static CustomLogger customLogger = (String message) -> LOGGER.info(message);
+
 
     public static void main(String[] args) {
 
@@ -45,7 +50,7 @@ public class Main {
         Customer customer = new Customer("Mariya", "Vasulivska", true, application, 15000);
         Set<String> system = new HashSet<>();
         system.add("IOS");
-        Functional functional = new Functional((HashSet<String>) system, 8, true, 2);
+        Functional functional = new Functional((HashSet<String>) system, 10, true, 2);
         int tasksForEveryone = Employee.getTasksForEveryOne(functional);
 
         //instantiation of employees
@@ -58,8 +63,10 @@ public class Main {
 
         //instantiation of devices
         int sizeOfTeam = developers.size() + managers.size() + qaEngineers.size();
-        LinkedList<LapTop> lapTops = makeDevices(sizeOfTeam, maxCostLapTop, minCostLapTop, "LapTop");
-        LinkedList<Mouse> mouses = makeDevices(sizeOfTeam, maxCostMouse, minCostMouse, "Mouse");
+        Set<LapTop> lapTops = (Set<LapTop>) makeDevices(sizeOfTeam, PricesEnum.MAX_COST_LAPTOP.getPrice(),
+                                                PricesEnum.MIN_COST_LAPTOP.getPrice(), "LapTop");
+        Set<Mouse> mouses = (Set<Mouse>) makeDevices(sizeOfTeam, PricesEnum.MAX_COST_MOUSE.getPrice(),
+                                                PricesEnum.MIN_COST_MOUSE.getPrice(), "Mouse");
 
         Technicks technicks = new Technicks(lapTops, mouses);
 
@@ -72,25 +79,26 @@ public class Main {
         int cost = calculatorCost.calculateCost();
         //printing main information
 
-        LOGGER.info("PROJECT STARTS");
-        LOGGER.info("CUSTOMER: " + customer.getName() + " " + customer.getSurname() + " Budget: " + customer.getBudget());
-        LOGGER.info("APPLICATION: " + application.toString());
-        LOGGER.info("TEAM: " + team.getNameOfTeam().toUpperCase());
-        LOGGER.info("FUNCTIONAL: " + functional.toString());
-        LOGGER.info("The PRICE for this application will be:");
-        LOGGER.info(cost + "$");
+        customLogger.log("PROJECT STARTS");
+        customLogger.log("CUSTOMER: " + customer.getName() + " " + customer.getSurname() + " Budget: " + customer.getBudget());
+        customLogger.log("APPLICATION: " + application.toString());
+        customLogger.log("TEAM: " + team.getNameOfTeam().toUpperCase());
+        customLogger.log("FUNCTIONAL: " + functional.toString());
+        customLogger.log("The PRICE for this application will be:");
+        customLogger.log(cost + "$");
 
         //Write info about Employees and Technicks to the file
+        team.sortEmployeesBySurname();
         team.writeInfoToTheFile();
-        LOGGER.info("Wrote info about Team to the file infoEmployees.txt");
+        customLogger.log("Wrote info about Team to the file infoEmployees.txt");
         technicks.writeInfoToTheFile();
-        LOGGER.info("Wrote info about technicks to the file infoTehnicks.txt");
+        customLogger.log("Wrote info about technicks to the file infoTehnicks.txt");
         //Write info about customer to the file
         customer.writeInfoToTheFile();
-        LOGGER.info("Wrote info about customer to the file infoCustomer.txt");
+        customLogger.log("Wrote info about customer to the file infoCustomer.txt");
         findNumberUniqueWords("D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/starryNightAestetic.txt",
                 "D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/numberUniqueWords.txt");
-        LOGGER.info("PROJECT END \n");
+        customLogger.log("PROJECT END \n");
     }
 
     //methods to creating instantiation of employees and devices
@@ -98,36 +106,45 @@ public class Main {
     public static Set<? extends Employee> makeEmployees(int tasks, int number, String type) {
         Set<Employee> employees = new TreeSet<>();
         for (int i = 0; i < number; i++) {
+            String name = EmployeeGenerator.getNextName();
             switch (type) {
                 case "Developer":
-                    employees.add(new Developer(EmployeeGenerator.getNextName(), EmployeeGenerator.getNextSurname(),
-                            tasks, EmployeeGenerator.getNextLevel()));
+                    employees.add(new Developer(name,
+                            EmployeeGenerator.getNextSurname(EmployeeGenerator.EmployeesEnum.valueOf(name)),
+                            tasks, EmployeeGenerator.getNextLevel(EmployeeGenerator.EmployeesEnum.valueOf(name))));
+
                     break;
                 case "Manager":
-                    employees.add(new Manager(EmployeeGenerator.getNextName(), EmployeeGenerator.getNextSurname(),
-                            tasks, EmployeeGenerator.getNextExperience()));
+                    employees.add(new Manager(name,
+                            EmployeeGenerator.getNextSurname(EmployeeGenerator.EmployeesEnum.valueOf(name)),
+                            tasks, EmployeeGenerator.getNextExperience(EmployeeGenerator.EmployeesEnum.valueOf(name))));
                     break;
                 case "QAEngineer":
-                    employees.add(new QAEngineer(EmployeeGenerator.getNextName(), EmployeeGenerator.getNextSurname(),
-                            tasks, EmployeeGenerator.getNextLevel()));
+                    employees.add(new QAEngineer(EmployeeGenerator.getNextName(),
+                            EmployeeGenerator.getNextSurname(EmployeeGenerator.EmployeesEnum.valueOf(name)),
+                            tasks, EmployeeGenerator.getNextLevel(EmployeeGenerator.EmployeesEnum.valueOf(name))));
                     break;
             }
         }
         return employees;
     }
 
-    public static <T extends Device> LinkedList<T> makeDevices(int sizeOfTeam, int maxCostDevice, int minCostDevice, String device) {
-        LinkedList<T> devices = new LinkedList<>();
+    public static Set<? extends Device> makeDevices(int sizeOfTeam, int maxCostDevice, int minCostDevice, String device) {
+        Set<Device> devices = new TreeSet<>();
         for (int i = 0; i < sizeOfTeam; i++) {
-            randomCostDevice = random.nextInt(maxCostDevice - minCostDevice + 1) + minCostDevice;
+            int randomCostDevice = (int) (Math.random() * (maxCostDevice - minCostDevice + 1)) + minCostDevice;
             switch (device) {
                 case "LapTop":
-                    devices.add((T) new LapTop(randomCostDevice, DeviceGenerator.getNextDeviceName(device),
-                            DeviceGenerator.getNextLapTopScreenSize(), DeviceGenerator.getNextLapTopMemorySize()));
+                    String lapTopName = DeviceGenerator.getNextDeviceName("LapTop");
+                    devices.add(new LapTop(randomCostDevice, DeviceGenerator.getNextDeviceName(device),
+                            DeviceGenerator.getNextLapTopScreenSize(DeviceGenerator.LapTopEnum.valueOf(lapTopName)),
+                            DeviceGenerator.getNextLapTopMemorySize(DeviceGenerator.LapTopEnum.valueOf(lapTopName))));
                     break;
                 case "Mouse":
-                    devices.add((T) new Mouse(randomCostDevice, DeviceGenerator.getNextDeviceName(device),
-                            DeviceGenerator.getNextMouseWireless(), DeviceGenerator.getNextMouseSensor()));
+                    String mouseName =DeviceGenerator.getNextDeviceName("Mouse");
+                            devices.add(new Mouse(randomCostDevice, DeviceGenerator.getNextDeviceName(device),
+                            DeviceGenerator.getNextMouseWireless(DeviceGenerator.MouseEnum.valueOf(mouseName)),
+                                    DeviceGenerator.getNextMouseSensor(DeviceGenerator.MouseEnum.valueOf(mouseName))));
                     break;
             }
         }
@@ -138,16 +155,13 @@ public class Main {
         Set<String> uniqueWords;
         try {
             List<String> lines = FileUtils.readLines(new File(filePathFrom));
-            uniqueWords = new HashSet<>();
-            for (String line : lines) {
-                String[] wordsSplit = StringUtils.split(line);
-                for (String word : wordsSplit) {
-                    word = word.replaceAll("[^a-zA-Z]", "");
-                    if (!word.isEmpty()) {
-                        uniqueWords.add(word.toLowerCase());
-                    }
-                }
-            }
+                uniqueWords = lines.stream()
+                        .flatMap(line -> Arrays.stream(StringUtils.split(line)))
+                        .map(word -> word.replaceAll("[^a-zA-Z]", ""))
+                        .filter(word -> !word.isEmpty())
+                        .map(String::toLowerCase)
+                        .collect(Collectors.toSet());
+
             FileUtils.writeStringToFile(new File(filePathTo), Integer.toString(uniqueWords.size()), "UTF-8");
             LOGGER.info("Number of Unique Words has been written to the file");
         } catch (IOException e) {

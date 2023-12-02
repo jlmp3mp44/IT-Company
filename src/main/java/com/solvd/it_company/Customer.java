@@ -39,8 +39,8 @@ public final class Customer implements FullNameableInterface {
     }
 
     public void writeInfoToTheFile() {
-        try (FileOutputStream customer = new FileOutputStream("D:\\Course_testimg\\Course\\src\\com\\" +
-                "solvd\\laba\\oop\\files\\infoCustomer.txt")) {
+        try (FileOutputStream customer = new FileOutputStream("D:\\Course_testimg\\IT-Company\\src\\main" +
+                "\\java\\com\\solvd\\it_company\\files\\infoCustomer.txt")) {
             byte[] buffer = toString().getBytes();
             customer.write(buffer);
         } catch (FileNotFoundException e) {

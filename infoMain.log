@@ -1,13 +1,13 @@
-12:14:58.668 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
-12:14:58.682 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
-12:14:58.692 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
-12:14:58.693 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
-12:14:58.705 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=8 mediaContent=true complexityApp=2}
-12:14:58.705 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
-12:14:58.706 [main] INFO  com.solvd.it_company.Main - 6184$
-12:14:58.715 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
-12:14:58.744 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
-12:14:58.764 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
-12:14:58.817 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
-12:14:58.817 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+20:21:39.553 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+20:21:39.561 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+20:21:39.567 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+20:21:39.567 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+20:21:39.574 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+20:21:39.574 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+20:21:39.574 [main] INFO  com.solvd.it_company.Main - 12509$
+20:21:39.582 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+20:21:39.590 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+20:21:39.597 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+20:21:39.637 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+20:21:39.638 [main] INFO  com.solvd.it_company.Main - PROJECT END 
 

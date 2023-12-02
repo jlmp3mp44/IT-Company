@@ -4,6 +4,22 @@ package com.solvd.it_company;
 import com.solvd.it_company.interfaces.NameableInterface;
 
 public final class Company implements NameableInterface {
+    protected enum WorkDays{
+        MONDAY(100),
+        TUESDAY(120),
+        WEDNESDAY(120),
+        THURSDAY(120),
+        FRIDAY(150);
+        private Integer additionalCostPerDay;
+
+        WorkDays(Integer additionalCostPerDay) {
+            this.additionalCostPerDay = additionalCostPerDay;
+        }
+
+        public Integer getAdditionalCostPerDay() {
+            return additionalCostPerDay;
+        }
+    }
     private String name;
     private Team team;
     private double percentageOfAmount;

@@ -1,9 +1,12 @@
-DEVELOPERS 
-Developer{ Name=John Surname=Smith Salary=2000 numOfTasks=1}
 
-MANAGERS 
-Manager{ Name=David Surname=Brown Salary=2800 numOfEmployees in control=1}
-Manager{ Name=Mary Surname=Johnson Salary=2200 numOfEmployees in control=1}
+DEVELOPERS
+Developer{ Name=MARY Surname=Jhonson Salary=3000 numOfTasks=2}
+Developer{ Name=JOHN Surname=Smith Salary=3000 numOfTasks=2}
 
-QA ENGINEERS 
-QAEngineer{ Name=Sarah Surname=Lee Salary=2000 numOfTasks=1}
+MANAGERS
+Manager{ Name=DAVID Surname=Brown Salary=4000 numOfEmployees in control=2}
+Manager{ Name=SARAH Surname=Lee Salary=3200 numOfEmployees in control=2}
+
+QA ENGINEERS
+QAEngineer{ Name=EMMA Surname=Jones Salary=3000 numOfTasks=2}
+QAEngineer{ Name=EMILY Surname=Wilson Salary=3000 numOfTasks=2}
