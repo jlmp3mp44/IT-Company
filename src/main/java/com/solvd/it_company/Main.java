@@ -37,7 +37,7 @@ public class Main {
         }
     }
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
-    static CustomLogger customLogger = (String message) -> LOGGER.info(message);
+    static CustomLogger<String> customLogger = (message) -> LOGGER.info(message);
 
 
     public static void main(String[] args) {
