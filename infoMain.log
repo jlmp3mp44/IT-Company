@@ -11,3 +11,161 @@
 20:21:39.637 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
 20:21:39.638 [main] INFO  com.solvd.it_company.Main - PROJECT END 
 
+23:08:04.683 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+23:08:04.693 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+23:08:04.702 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+23:08:04.702 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+23:08:04.712 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+23:08:04.712 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+23:08:04.713 [main] INFO  com.solvd.it_company.Main - 12744$
+23:08:04.723 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+23:08:04.737 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+23:08:04.757 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+23:08:04.828 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+23:08:04.829 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+00:24:06.345 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+00:24:06.356 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+00:24:06.363 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+00:24:06.364 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+00:24:06.374 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+00:24:06.375 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+00:24:06.375 [main] INFO  com.solvd.it_company.Main - 11980$
+00:24:06.384 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+00:24:06.396 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+00:24:06.405 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+00:24:06.461 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+00:24:06.461 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+00:29:10.900 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+00:29:10.911 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+00:29:10.917 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+00:29:10.918 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+00:29:10.932 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+00:29:10.933 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+00:29:10.933 [main] INFO  com.solvd.it_company.Main - 12040$
+00:29:10.944 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+00:29:10.954 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+00:29:10.964 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+00:29:11.012 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+00:29:11.012 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:13:35.691 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:13:35.703 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:13:35.713 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:13:35.713 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:13:35.722 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:13:35.722 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:13:35.723 [main] INFO  com.solvd.it_company.Main - 11883$
+12:13:35.733 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:13:35.744 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:13:35.754 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:13:35.827 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:13:35.831 [main] INFO  com.solvd.it_company.Technicks - The lapTop with the biggest screen size ASUS2 15.9
+12:13:35.832 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:15:06.246 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:15:06.257 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:15:06.264 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:15:06.265 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:15:06.272 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:15:06.273 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:15:06.274 [main] INFO  com.solvd.it_company.Main - 12363$
+12:15:06.281 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:15:06.291 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:15:06.310 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:15:06.359 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:15:06.364 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:15:06.364 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:38:48.239 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:38:48.249 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:38:48.257 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:38:48.258 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:38:48.266 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:38:48.266 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:38:48.267 [main] INFO  com.solvd.it_company.Main - 12739$
+12:38:48.276 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:38:48.287 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:38:48.296 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:38:48.346 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:38:48.350 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:38:48.352 [main] INFO  com.solvd.it_company.Main - MARY Jhonson 3000
+12:38:48.352 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:43:26.727 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:43:26.737 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:43:26.746 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:43:26.746 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:43:26.754 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:43:26.754 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:43:26.755 [main] INFO  com.solvd.it_company.Main - 12217$
+12:43:26.764 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:43:26.774 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:43:26.782 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:43:26.830 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:43:26.835 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:43:26.836 [main] INFO  com.solvd.it_company.Main - Finding employee with surname Johnson
+12:43:26.837 [main] INFO  com.solvd.it_company.Main - MARY Jhonson 3000
+12:43:26.838 [main] INFO  com.solvd.it_company.Main - Wireless mouses: 
+12:43:26.839 [main] INFO  com.solvd.it_company.Main - [Mouse{ Name=APPLE2 Cost=80 Is Wireless?=true Has Sensor?=false}, Mouse{ Name=APPLE4 Cost=91 Is Wireless?=true Has Sensor?=false}, Mouse{ Name=LENOVO2 Cost=100 Is Wireless?=true Has Sensor?=true}, Mouse{ Name=LENOVO4 Cost=53 Is Wireless?=true Has Sensor?=false}]
+12:43:26.840 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:44:20.978 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:44:20.989 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:44:20.997 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:44:20.998 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:44:21.009 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:44:21.010 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:44:21.011 [main] INFO  com.solvd.it_company.Main - 11752$
+12:44:21.024 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:44:21.034 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:44:21.044 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:44:21.105 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:44:21.112 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:44:21.112 [main] INFO  com.solvd.it_company.Main - Finding employee with surname Johnson
+12:44:21.114 [main] INFO  com.solvd.it_company.Main - MARY Jhonson 3000
+12:44:21.115 [main] INFO  com.solvd.it_company.Main - Wireless mouses: 
+12:44:21.118 [main] INFO  com.solvd.it_company.Main - [APPLE2, APPLE4, LENOVO2, LENOVO4]
+12:44:21.119 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:54:14.842 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:54:14.853 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:54:14.860 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:54:14.860 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:54:14.869 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:54:14.869 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:54:14.870 [main] INFO  com.solvd.it_company.Main - 11628$
+12:54:14.879 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:54:14.890 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:54:14.898 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:54:14.953 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:54:14.957 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:54:14.957 [main] INFO  com.solvd.it_company.Main - Finding employee with surname Johnson
+12:54:14.959 [main] INFO  com.solvd.it_company.Main - MARY Jhonson 3000
+12:54:14.959 [main] INFO  com.solvd.it_company.Main - Wireless mouses: 
+12:54:14.962 [main] INFO  com.solvd.it_company.Main - [APPLE2, APPLE4, LENOVO2, LENOVO4]
+12:54:14.963 [main] INFO  com.solvd.it_company.Main - Manager with the biggest salary: 
+12:54:14.964 [main] INFO  com.solvd.it_company.Main - The employee with biggest salaryDAVIDBrown4000
+12:54:14.966 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:54:38.678 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:54:38.691 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:54:38.699 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:54:38.699 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:54:38.707 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:54:38.708 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:54:38.708 [main] INFO  com.solvd.it_company.Main - 12033$
+12:54:38.719 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:54:38.729 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:54:38.739 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:54:38.789 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:54:38.796 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:54:38.796 [main] INFO  com.solvd.it_company.Main - Finding employee with surname Johnson
+12:54:38.797 [main] INFO  com.solvd.it_company.Main - MARY Jhonson 3000
+12:54:38.797 [main] INFO  com.solvd.it_company.Main - Wireless mouses: 
+12:54:38.801 [main] INFO  com.solvd.it_company.Main - [APPLE2, APPLE4, LENOVO2, LENOVO4]
+12:54:38.802 [main] INFO  com.solvd.it_company.Main - Manager with the biggest salary: 
+12:54:38.805 [main] INFO  com.solvd.it_company.Main - The employee with biggest salaryDAVID Brown 4000
+12:54:38.806 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+

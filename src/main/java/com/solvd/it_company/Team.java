@@ -10,9 +10,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Team implements InfoInterface {
 
@@ -81,6 +79,21 @@ public class Team implements InfoInterface {
         TreeSet<T> sortedSet = new TreeSet<>(comparator);
         sortedSet.addAll(employees);
         return sortedSet;
+    }
+    public String findEmployeeBySurname(Set<? extends Employee> employees, String surname){
+        Optional<? extends Employee> matchEmployee = employees.stream()
+                .filter(employee -> employee.getSurname().equals(surname))
+                .findFirst();
+               return matchEmployee.map(employee ->
+                        String.format(employee.getName() + " " + employee.getSurname() + " " + employee.getFullSalary()))
+                       .orElse("There is no employee with this surname");
+    }
+    public String findEmplWithBiggestSalary(Set<? extends Employee> employees){
+        return employees.stream()
+                .max(Comparator.comparingInt(Employee::getFullSalary))
+                .map(employee -> String.format("The employee with biggest salary " + employee.getName()+ " " + employee.getSurname()
+                + " " + employee.getFullSalary()))
+                .orElse("There is no employee with the biggest salary");
     }
 
 

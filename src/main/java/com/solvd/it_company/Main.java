@@ -98,6 +98,16 @@ public class Main {
         customLogger.log("Wrote info about customer to the file infoCustomer.txt");
         findNumberUniqueWords("D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/starryNightAestetic.txt",
                 "D:/Course_testimg/IT-Company/src/main/java/com/solvd/it_company/files/numberUniqueWords.txt");
+
+        ///using streams
+        Optional<LapTop> largestLapTop = technicks.getLapTopWithBiggestScreenSize();
+        LOGGER.info("The lapTop with the biggest screen size " + largestLapTop.get().getName() + " " + largestLapTop.get().getScreenSize());
+        LOGGER.info("Finding employee with surname " + "Johnson");
+        LOGGER.info(team.findEmployeeBySurname(developers, "Jhonson"));
+        LOGGER.info("Wireless mouses: ");
+        LOGGER.info(technicks.finAllWirelessMouse());
+        LOGGER.info("Manager with the biggest salary: ");
+        LOGGER.info(team.findEmplWithBiggestSalary(managers));
         customLogger.log("PROJECT END \n");
     }
 
