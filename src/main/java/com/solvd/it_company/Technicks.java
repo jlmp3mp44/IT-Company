@@ -10,7 +10,11 @@ import org.apache.logging.log4j.Logger;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 public class Technicks implements InfoInterface {
@@ -45,6 +49,17 @@ public class Technicks implements InfoInterface {
         } catch (IOException e) {
             LOGGER.error("Error ocured " + e.getMessage());
         }
+    }
+    public Optional<LapTop> getLapTopWithBiggestScreenSize(){
+        Optional<LapTop> largestLapTop = lapTops.stream()
+                .max(Comparator.comparingDouble(LapTop::getScreenSize));
+        return largestLapTop;
+    }
+    public List<String> finAllWirelessMouse(){
+        return mouses.stream()
+                .filter(Mouse::isWireless)
+                .map(mouse -> mouse.getName())
+                .collect(Collectors.toList());
     }
 
     public Set<LapTop> getLapTops() {
