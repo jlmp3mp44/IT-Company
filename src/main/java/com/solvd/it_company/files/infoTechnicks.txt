@@ -1,16 +1,16 @@
 
 LapTops
-LapTop{ Name=APPLE2 Cost=849 ScreenSize=13.8 MemorySize=64}
-LapTop{ Name=APPLE4 Cost=1185 ScreenSize=14.5 MemorySize=32}
-LapTop{ Name=ASUS2 Cost=1160 ScreenSize=15.9 MemorySize=32}
-LapTop{ Name=ASUS4 Cost=673 ScreenSize=13.0 MemorySize=32}
-LapTop{ Name=LENOVO2 Cost=814 ScreenSize=14.6 MemorySize=32}
-LapTop{ Name=LENOVO4 Cost=1135 ScreenSize=14.8 MemorySize=8}
+LapTop{ Name=APPLE2 Cost=1164 ScreenSize=13.8 MemorySize=64}
+LapTop{ Name=APPLE4 Cost=509 ScreenSize=14.5 MemorySize=32}
+LapTop{ Name=ASUS2 Cost=820 ScreenSize=15.9 MemorySize=32}
+LapTop{ Name=ASUS4 Cost=1059 ScreenSize=13.0 MemorySize=32}
+LapTop{ Name=LENOVO2 Cost=921 ScreenSize=14.6 MemorySize=32}
+LapTop{ Name=LENOVO4 Cost=903 ScreenSize=14.8 MemorySize=8}
 
 Mouses
-Mouse{ Name=APPLE2 Cost=64 Is Wireless?=true Has Sensor?=false}
-Mouse{ Name=APPLE4 Cost=54 Is Wireless?=true Has Sensor?=false}
-Mouse{ Name=ASUS2 Cost=143 Is Wireless?=false Has Sensor?=true}
-Mouse{ Name=ASUS4 Cost=85 Is Wireless?=false Has Sensor?=false}
-Mouse{ Name=LENOVO2 Cost=60 Is Wireless?=true Has Sensor?=true}
-Mouse{ Name=LENOVO4 Cost=73 Is Wireless?=true Has Sensor?=false}
+Mouse{ Name=APPLE2 Cost=137 Is Wireless?=true Has Sensor?=false}
+Mouse{ Name=APPLE4 Cost=132 Is Wireless?=true Has Sensor?=false}
+Mouse{ Name=ASUS2 Cost=76 Is Wireless?=false Has Sensor?=true}
+Mouse{ Name=ASUS4 Cost=111 Is Wireless?=false Has Sensor?=false}
+Mouse{ Name=LENOVO2 Cost=92 Is Wireless?=true Has Sensor?=true}
+Mouse{ Name=LENOVO4 Cost=135 Is Wireless?=true Has Sensor?=false}
