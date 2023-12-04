@@ -1,16 +1,17 @@
 package com.solvd.it_company;
 
-import com.solvd.it_company.Lambdas.MonthsRefactorToDays;
+import com.solvd.it_company.enums.WorkDays;
 import com.solvd.it_company.exceptions.CostApplicationExpensiveException;
 import com.solvd.it_company.exceptions.PriceDeviceZeroOrLessException;
 import com.solvd.it_company.exceptions.SalaryZeroOrLessException;
 import com.solvd.it_company.interfaces.CalculatorCostInterface;
-import org.apache.commons.lang3.function.TriFunction;
+import com.solvd.it_company.lambdas.MonthsRefactorToDays;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Set;
-import java.util.function.*;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public final class CalculatorCost implements CalculatorCostInterface {
     private static final Logger LOGGER = LogManager.getLogger(CalculatorCost.class);
@@ -29,9 +30,9 @@ public final class CalculatorCost implements CalculatorCostInterface {
     public int calculateAllSalary() {
         int totalSalary = 0;
         Function<Integer, Integer> allSalary = (salary) -> {
-            salary+= calculateSalary(getDevelopers(), "Developes");
-            salary+=calculateSalary(getManagers(), "Manager");
-            salary+=calculateSalary(getQaEngineers(), "QA Engineer");
+            salary += calculateSalary(getDevelopers(), "Developes");
+            salary += calculateSalary(getManagers(), "Manager");
+            salary += calculateSalary(getQaEngineers(), "QA Engineer");
             return salary;
 
         };
@@ -91,19 +92,17 @@ public final class CalculatorCost implements CalculatorCostInterface {
         int fullCost = 0;
         int additionalCost = 0;
         Function<Integer, Integer> addAdditionalCost = (cost) -> {
-            cost += Company.WorkDays.MONDAY.getAdditionalCostPerDay();
-            cost += Company.WorkDays.TUESDAY.getAdditionalCostPerDay();
-            cost += Company.WorkDays.WEDNESDAY.getAdditionalCostPerDay();
-            cost += Company.WorkDays.THURSDAY.getAdditionalCostPerDay();
-            cost += Company.WorkDays.FRIDAY.getAdditionalCostPerDay();
+            cost += WorkDays.MONDAY.getAdditionalCostPerDay();
+            cost += WorkDays.TUESDAY.getAdditionalCostPerDay();
+            cost += WorkDays.WEDNESDAY.getAdditionalCostPerDay();
+            cost += WorkDays.THURSDAY.getAdditionalCostPerDay();
+            cost += WorkDays.FRIDAY.getAdditionalCostPerDay();
             return cost;
         };
         fullCost = addAdditionalCost.apply(fullCost);
 
-        MonthsRefactorToDays<Integer, Integer,  Integer> timeRef = (month, days) -> {
-            return month * days;
-        };
-        int time =  timeRef.monthsToDays(customer.getApplication().getTimeToMake(), 30);
+        MonthsRefactorToDays<Integer, Integer, Integer> timeRef = (month, days) -> month * days;
+        int time = timeRef.monthsToDays(customer.getApplication().getTimeToMake(), 30);
         int complexity = functional.getComplexityApp();
         int system = functional.getSystem().size();
         int numOfTasks = functional.getNumberOfTasks();
@@ -117,9 +116,9 @@ public final class CalculatorCost implements CalculatorCostInterface {
         BiFunction<Integer, Integer, Integer> addTwoIntegerCosts = (num1, num2) -> num1 + num2;
         int costEmployeesAndDevices = addTwoIntegerCosts.apply(fullSalary, fullCostDevices);
 
-        BiFunction<Integer, Double, Double> addTwoDiffCosts =  (num1, num2) -> num1 + num2;
+        BiFunction<Integer, Double, Double> addTwoDiffCosts = (num1, num2) -> num1 + num2;
         double costFunctional = system * complexity * 10;
-        double costFuncAndEmplDev = addTwoDiffCosts.apply(costEmployeesAndDevices/2, costFunctional);
+        double costFuncAndEmplDev = addTwoDiffCosts.apply(costEmployeesAndDevices / 2, costFunctional);
 
         double costWithoutPercantage = costFuncAndEmplDev + (complexity * time) + (numOfTasks * mediaContent);
 

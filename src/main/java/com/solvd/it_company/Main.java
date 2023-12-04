@@ -1,41 +1,23 @@
 package com.solvd.it_company;
 
-import com.solvd.it_company.Lambdas.CustomLogger;
+import com.solvd.it_company.enums.EmployeeEnum;
+import com.solvd.it_company.enums.LapTopEnum;
+import com.solvd.it_company.enums.MouseEnum;
+import com.solvd.it_company.enums.PriceEnum;
+import com.solvd.it_company.lambdas.CustomLogger;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.tools.Generate;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 
 public class Main {
-    enum PricesEnum{
-        MIN_COST_LAPTOP("MinCostLapTop", 400 ),
-        MAX_COST_LAPTOP("MaxCostlapTp", 1200),
-        MIN_COST_MOUSE("MinCostMouse", 50),
-        MAX_COST_MOUSE("MaxCostMouse", 150);
-        private String name;
-        private Integer price;
 
-        PricesEnum(String name, Integer price) {
-            this.name = name;
-            this.price = price;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Integer getPrice() {
-            return price;
-        }
-    }
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
     static CustomLogger<String> customLogger = (message) -> LOGGER.info(message);
 
@@ -63,10 +45,10 @@ public class Main {
 
         //instantiation of devices
         int sizeOfTeam = developers.size() + managers.size() + qaEngineers.size();
-        Set<LapTop> lapTops = (Set<LapTop>) makeDevices(sizeOfTeam, PricesEnum.MAX_COST_LAPTOP.getPrice(),
-                                                PricesEnum.MIN_COST_LAPTOP.getPrice(), "LapTop");
-        Set<Mouse> mouses = (Set<Mouse>) makeDevices(sizeOfTeam, PricesEnum.MAX_COST_MOUSE.getPrice(),
-                                                PricesEnum.MIN_COST_MOUSE.getPrice(), "Mouse");
+        Set<LapTop> lapTops = (Set<LapTop>) makeDevices(sizeOfTeam, PriceEnum.MAX_COST_LAPTOP.getPrice(),
+                PriceEnum.MIN_COST_LAPTOP.getPrice(), "LapTop");
+        Set<Mouse> mouses = (Set<Mouse>) makeDevices(sizeOfTeam, PriceEnum.MAX_COST_MOUSE.getPrice(),
+                PriceEnum.MIN_COST_MOUSE.getPrice(), "Mouse");
 
         Technicks technicks = new Technicks(lapTops, mouses);
 
@@ -120,19 +102,19 @@ public class Main {
             switch (type) {
                 case "Developer":
                     employees.add(new Developer(name,
-                            EmployeeGenerator.getNextSurname(EmployeeGenerator.EmployeesEnum.valueOf(name)),
-                            tasks, EmployeeGenerator.getNextLevel(EmployeeGenerator.EmployeesEnum.valueOf(name))));
+                            EmployeeGenerator.getNextSurname(EmployeeEnum.valueOf(name)),
+                            tasks, EmployeeGenerator.getNextLevel(EmployeeEnum.valueOf(name))));
 
                     break;
                 case "Manager":
                     employees.add(new Manager(name,
-                            EmployeeGenerator.getNextSurname(EmployeeGenerator.EmployeesEnum.valueOf(name)),
-                            tasks, EmployeeGenerator.getNextExperience(EmployeeGenerator.EmployeesEnum.valueOf(name))));
+                            EmployeeGenerator.getNextSurname(EmployeeEnum.valueOf(name)),
+                            tasks, EmployeeGenerator.getNextExperience(EmployeeEnum.valueOf(name))));
                     break;
                 case "QAEngineer":
                     employees.add(new QAEngineer(EmployeeGenerator.getNextName(),
-                            EmployeeGenerator.getNextSurname(EmployeeGenerator.EmployeesEnum.valueOf(name)),
-                            tasks, EmployeeGenerator.getNextLevel(EmployeeGenerator.EmployeesEnum.valueOf(name))));
+                            EmployeeGenerator.getNextSurname(EmployeeEnum.valueOf(name)),
+                            tasks, EmployeeGenerator.getNextLevel(EmployeeEnum.valueOf(name))));
                     break;
             }
         }
@@ -147,14 +129,14 @@ public class Main {
                 case "LapTop":
                     String lapTopName = DeviceGenerator.getNextDeviceName("LapTop");
                     devices.add(new LapTop(randomCostDevice, DeviceGenerator.getNextDeviceName(device),
-                            DeviceGenerator.getNextLapTopScreenSize(DeviceGenerator.LapTopEnum.valueOf(lapTopName)),
-                            DeviceGenerator.getNextLapTopMemorySize(DeviceGenerator.LapTopEnum.valueOf(lapTopName))));
+                            DeviceGenerator.getNextLapTopScreenSize(LapTopEnum.valueOf(lapTopName)),
+                            DeviceGenerator.getNextLapTopMemorySize(LapTopEnum.valueOf(lapTopName))));
                     break;
                 case "Mouse":
-                    String mouseName =DeviceGenerator.getNextDeviceName("Mouse");
-                            devices.add(new Mouse(randomCostDevice, DeviceGenerator.getNextDeviceName(device),
-                            DeviceGenerator.getNextMouseWireless(DeviceGenerator.MouseEnum.valueOf(mouseName)),
-                                    DeviceGenerator.getNextMouseSensor(DeviceGenerator.MouseEnum.valueOf(mouseName))));
+                    String mouseName = DeviceGenerator.getNextDeviceName("Mouse");
+                    devices.add(new Mouse(randomCostDevice, DeviceGenerator.getNextDeviceName(device),
+                            DeviceGenerator.getNextMouseWireless(MouseEnum.valueOf(mouseName)),
+                            DeviceGenerator.getNextMouseSensor(MouseEnum.valueOf(mouseName))));
                     break;
             }
         }
@@ -165,12 +147,12 @@ public class Main {
         Set<String> uniqueWords;
         try {
             List<String> lines = FileUtils.readLines(new File(filePathFrom));
-                uniqueWords = lines.stream()
-                        .flatMap(line -> Arrays.stream(StringUtils.split(line)))
-                        .map(word -> word.replaceAll("[^a-zA-Z]", ""))
-                        .filter(word -> !word.isEmpty())
-                        .map(String::toLowerCase)
-                        .collect(Collectors.toSet());
+            uniqueWords = lines.stream()
+                    .flatMap(line -> Arrays.stream(StringUtils.split(line)))
+                    .map(word -> word.replaceAll("[^a-zA-Z]", ""))
+                    .filter(word -> !word.isEmpty())
+                    .map(String::toLowerCase)
+                    .collect(Collectors.toSet());
 
             FileUtils.writeStringToFile(new File(filePathTo), Integer.toString(uniqueWords.size()), "UTF-8");
             LOGGER.info("Number of Unique Words has been written to the file");

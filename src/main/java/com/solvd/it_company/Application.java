@@ -37,7 +37,8 @@ public class Application implements NameableInterface {
     public String getDecription() {
         return description;
     }
-    private String whoAmI(){
+
+    private String whoAmI() {
         return "I am a class Application";
     }
 }
