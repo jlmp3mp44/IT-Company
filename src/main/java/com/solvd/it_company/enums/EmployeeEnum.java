@@ -1,5 +1,9 @@
 package com.solvd.it_company.enums;
 
+import com.solvd.it_company.Main;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum EmployeeEnum {
     JOHN("John", "Smith", "Jun", 4),
     MARY("Mary", "Jhonson", "Middle", 4),
@@ -17,7 +21,19 @@ public enum EmployeeEnum {
     MIA("Mia","Walker", "Jun", 2),
     ALEKSA("Aleksa","Parker", "Jun", 2),
     POLINA("Polina","Sothu", "Jun", 2);
+    static {
+        final Logger LOGGER = LogManager.getLogger(EmployeeEnum.class);
+        int totalExperience = 0;
+        int employeeCount = 0;
 
+        for (EmployeeEnum employee : EmployeeEnum.values()) {
+            totalExperience += employee.getExperience();
+            employeeCount++;
+        }
+
+        double averageExperience = (double) totalExperience / employeeCount;
+        LOGGER.info("Average level of experience " + averageExperience);
+    }
     private String name;
     private String surname;
     private String level;
@@ -44,5 +60,6 @@ public enum EmployeeEnum {
     public Integer getExperience() {
         return experience;
     }
+
 }
 
