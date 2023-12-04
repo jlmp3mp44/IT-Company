@@ -1,16 +1,19 @@
 package com.solvd.it_company;
 
 
-import com.solvd.it_company.Lambdas.WordProcessorTeam;
 import com.solvd.it_company.exceptions.SizeOfTeamSmallException;
 import com.solvd.it_company.interfaces.InfoInterface;
+import com.solvd.it_company.lambdas.WordProcessor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.Comparator;
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Team implements InfoInterface {
 
@@ -38,7 +41,7 @@ public class Team implements InfoInterface {
         }
         StringBuilder result = new StringBuilder();
 
-        WordProcessorTeam<Employee, String> appendEmployeeInfo = (title, employees) -> {
+        WordProcessor<Employee, String> appendEmployeeInfo = (title, employees) -> {
             result.append("\n").append(title).append("\n");
             employees.forEach(employee -> result.append(employee.toString()).append("\n"));
         };
@@ -68,31 +71,35 @@ public class Team implements InfoInterface {
             LOGGER.error("Error ocured " + e.getMessage());
         }
     }
-    public void sortEmployeesBySurname(){
+
+    public void sortEmployeesBySurname() {
         Comparator<Employee> surnameComparator = (e1, e2) ->
                 e1.getSurname().compareToIgnoreCase(e2.getSurname());
         developers = sortEmployees(developers, surnameComparator);
         managers = sortEmployees(managers, surnameComparator);
         qaEngineers = sortEmployees(qaEngineers, surnameComparator);
     }
+
     private <T extends Employee> Set<T> sortEmployees(Set<T> employees, Comparator<? super T> comparator) {
         TreeSet<T> sortedSet = new TreeSet<>(comparator);
         sortedSet.addAll(employees);
         return sortedSet;
     }
-    public String findEmployeeBySurname(Set<? extends Employee> employees, String surname){
+
+    public String findEmployeeBySurname(Set<? extends Employee> employees, String surname) {
         Optional<? extends Employee> matchEmployee = employees.stream()
                 .filter(employee -> employee.getSurname().equals(surname))
                 .findFirst();
-               return matchEmployee.map(employee ->
+        return matchEmployee.map(employee ->
                         String.format(employee.getName() + " " + employee.getSurname() + " " + employee.getFullSalary()))
-                       .orElse("There is no employee with this surname");
+                .orElse("There is no employee with this surname");
     }
-    public String findEmplWithBiggestSalary(Set<? extends Employee> employees){
+
+    public String findEmplWithBiggestSalary(Set<? extends Employee> employees) {
         return employees.stream()
                 .max(Comparator.comparingInt(Employee::getFullSalary))
-                .map(employee -> String.format("The employee with biggest salary " + employee.getName()+ " " + employee.getSurname()
-                + " " + employee.getFullSalary()))
+                .map(employee -> String.format(employee.getName() + " " + employee.getSurname()
+                        + " " + employee.getFullSalary()))
                 .orElse("There is no employee with the biggest salary");
     }
 

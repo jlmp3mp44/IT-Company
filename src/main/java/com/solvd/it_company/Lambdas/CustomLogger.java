@@ -1,4 +1,4 @@
-package com.solvd.it_company.Lambdas;
+package com.solvd.it_company.lambdas;
 
 @FunctionalInterface
 public interface CustomLogger<T> {

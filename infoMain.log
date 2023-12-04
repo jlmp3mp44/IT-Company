@@ -169,3 +169,43 @@
 12:54:38.805 [main] INFO  com.solvd.it_company.Main - The employee with biggest salaryDAVID Brown 4000
 12:54:38.806 [main] INFO  com.solvd.it_company.Main - PROJECT END 
 
+12:13:44.089 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:13:44.100 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:13:44.108 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:13:44.109 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:13:44.118 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:13:44.119 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:13:44.119 [main] INFO  com.solvd.it_company.Main - 12326$
+12:13:44.130 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:13:44.141 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:13:44.151 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:13:44.224 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:13:44.227 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:13:44.228 [main] INFO  com.solvd.it_company.Main - Finding employee with surname Johnson
+12:13:44.229 [main] INFO  com.solvd.it_company.Main - MARY Jhonson 3000
+12:13:44.229 [main] INFO  com.solvd.it_company.Main - Wireless mouses: 
+12:13:44.231 [main] INFO  com.solvd.it_company.Main - [APPLE2, APPLE4, LENOVO2, LENOVO4]
+12:13:44.232 [main] INFO  com.solvd.it_company.Main - Manager with the biggest salary: 
+12:13:44.237 [main] INFO  com.solvd.it_company.Main - The employee with biggest salary DAVID Brown 4000
+12:13:44.238 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
+12:14:38.256 [main] INFO  com.solvd.it_company.Main - PROJECT STARTS
+12:14:38.264 [main] INFO  com.solvd.it_company.Main - CUSTOMER: Mariya Vasulivska Budget: 15000
+12:14:38.271 [main] INFO  com.solvd.it_company.Main - APPLICATION: Application{name='AStore' timeToMake=2 months description='Appliation - online store with custom clothes'}
+12:14:38.272 [main] INFO  com.solvd.it_company.Main - TEAM: COOLERS
+12:14:38.279 [main] INFO  com.solvd.it_company.Main - FUNCTIONAL: Functional{ system=[IOS] numberOfTasks=10 mediaContent=true complexityApp=2}
+12:14:38.280 [main] INFO  com.solvd.it_company.Main - The PRICE for this application will be:
+12:14:38.281 [main] INFO  com.solvd.it_company.Main - 12157$
+12:14:38.291 [main] INFO  com.solvd.it_company.Main - Wrote info about Team to the file infoEmployees.txt
+12:14:38.300 [main] INFO  com.solvd.it_company.Main - Wrote info about technicks to the file infoTehnicks.txt
+12:14:38.309 [main] INFO  com.solvd.it_company.Main - Wrote info about customer to the file infoCustomer.txt
+12:14:38.354 [main] INFO  com.solvd.it_company.Main - Number of Unique Words has been written to the file
+12:14:38.359 [main] INFO  com.solvd.it_company.Main - The lapTop with the biggest screen size ASUS2 15.9
+12:14:38.360 [main] INFO  com.solvd.it_company.Main - Finding employee with surname Johnson
+12:14:38.361 [main] INFO  com.solvd.it_company.Main - MARY Jhonson 3000
+12:14:38.362 [main] INFO  com.solvd.it_company.Main - Wireless mouses: 
+12:14:38.365 [main] INFO  com.solvd.it_company.Main - [APPLE2, APPLE4, LENOVO2, LENOVO4]
+12:14:38.366 [main] INFO  com.solvd.it_company.Main - Manager with the biggest salary: 
+12:14:38.368 [main] INFO  com.solvd.it_company.Main - The employee with biggest salary DAVID Brown 4000
+12:14:38.368 [main] INFO  com.solvd.it_company.Main - PROJECT END 
+
