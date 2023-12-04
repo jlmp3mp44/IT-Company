@@ -101,7 +101,10 @@ public final class CalculatorCost implements CalculatorCostInterface {
         };
         fullCost = addAdditionalCost.apply(fullCost);
 
-        MonthsRefactorToDays<Integer, Integer, Integer> timeRef = (month, days) -> month * days;
+        MonthsRefactorToDays<Number, Number, Integer> timeRef = (months, days) ->
+                months.intValue() * days.intValue();
+
+
         int time = timeRef.monthsToDays(customer.getApplication().getTimeToMake(), 30);
         int complexity = functional.getComplexityApp();
         int system = functional.getSystem().size();

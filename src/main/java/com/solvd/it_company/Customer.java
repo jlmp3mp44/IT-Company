@@ -1,7 +1,6 @@
 package com.solvd.it_company;
 
 import com.solvd.it_company.interfaces.FullNameableInterface;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -49,6 +48,7 @@ public final class Customer implements FullNameableInterface {
             LOGGER.error("Error occured " + e.getMessage());
         }
     }
+
     @Override
     public String getName() {
         return name;

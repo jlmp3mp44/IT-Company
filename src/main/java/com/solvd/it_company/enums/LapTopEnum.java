@@ -1,5 +1,8 @@
 package com.solvd.it_company.enums;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public enum LapTopEnum{
     LENOVO1("Lenovo", 14.6, 32),
     LENOVO2("Lenovo", 15.0, 64),
@@ -13,6 +16,19 @@ public enum LapTopEnum{
     APPLE4("Apple", 12.8, 64),
     ASUS3("Asus", 13.0, 32),
     ASUS4("Asus", 14.6, 64);
+    static {
+        final Logger LOGGER = LogManager.getLogger(LapTopEnum.class);
+        int totalscreenSize = 0;
+        int lapTopCount = 0;
+
+        for (LapTopEnum lapTopEnum : LapTopEnum.values()) {
+            totalscreenSize += lapTopEnum.getScreenSize();
+            lapTopCount++;
+        }
+
+        double averageScreenSize = (double) totalscreenSize / lapTopCount;
+        LOGGER.info("Average level of experience " +  averageScreenSize);
+    }
     private String name;
     private Double screenSize;
     private Integer memorySize;
