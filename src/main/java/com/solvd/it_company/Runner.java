@@ -11,7 +11,7 @@ public class Runner {
             System.out.println(field.getName());
             System.out.println(Modifier.toString(field.getModifiers()));
         }
-        System.out.println("METHODS");
+        System.out.println("\n METHODS");
         Method[] methods = clazz.getDeclaredMethods();
         for (Method method : methods) {
             System.out.print(method.getName() + " " + Modifier.toString(method.getModifiers()) +
@@ -25,7 +25,7 @@ public class Runner {
             System.out.println();
         }
 
-        System.out.println("CONSTRUCTORS");
+        System.out.println("\nCONSTRUCTORS");
         Constructor[] constructors = clazz.getDeclaredConstructors();
         for (Constructor constructor : constructors) {
             System.out.println(constructor.getName() + " " + Modifier.toString(constructor.getModifiers()) + " "
@@ -33,15 +33,14 @@ public class Runner {
         }
         //INVOKE
         try {
-            Class<?> clazzInvoke = Application.class;
-            Constructor<?> constructor = clazzInvoke.getDeclaredConstructor(String.class, int.class, String.class, int.class);
+            Constructor<?> constructor = clazz.getDeclaredConstructor(String.class, int.class, String.class, int.class);
             constructor.setAccessible(true);
             Object applicationObject = constructor.newInstance("store", 3, "Internet store", 1200);
 
-            Method method = clazzInvoke.getDeclaredMethod("whoAmI");
+            Method method = clazz.getDeclaredMethod("whoAmI");
             method.setAccessible(true);
             Object result = method.invoke(applicationObject);
-            System.out.println("Result of invoke method : " + result.toString());
+            System.out.println("\nResult of invoke method : " + result.toString());
         } catch (Exception e) {
             e.getMessage();
         }
