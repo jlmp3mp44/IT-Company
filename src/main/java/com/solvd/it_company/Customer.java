@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public final class Customer implements FullNameableInterface {
+public final class Customer implements FullNameableInterface, Runnable{
 
     private static final Logger LOGGER = LogManager.getLogger(Customer.class);
 
@@ -24,6 +24,11 @@ public final class Customer implements FullNameableInterface {
         this.regularCustomer = regularCustomer;
         this.application = application;
         this.budget = budget;
+    }
+
+    @Override
+    public void run() {
+        whoAmI();
     }
 
     @Override
@@ -47,6 +52,9 @@ public final class Customer implements FullNameableInterface {
         } catch (IOException e) {
             LOGGER.error("Error occured " + e.getMessage());
         }
+    }
+    public void whoAmI(){
+        LOGGER.info("I am a customer thread");
     }
 
     @Override
