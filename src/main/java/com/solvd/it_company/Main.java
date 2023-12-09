@@ -23,6 +23,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+        
 
         //initializing the important variables
 
@@ -30,6 +31,8 @@ public class Main {
                 "Appliation - online store with custom clothes", 0);
         //instantiation of classes
         Customer customer = new Customer("Mariya", "Vasulivska", true, application, 15000);
+        Thread customerThread = new Thread(customer);
+        customerThread.start();
         Set<String> system = new HashSet<>();
         system.add("IOS");
         Functional functional = new Functional((HashSet<String>) system, 10, true, 2);
@@ -58,7 +61,6 @@ public class Main {
 
         //calculate the cost of application
         CalculatorCost calculatorCost = new CalculatorCost(customer, functional, company);
-        int cost = calculatorCost.calculateCost();
         //printing main information
 
         customLogger.log("PROJECT STARTS");
@@ -67,10 +69,9 @@ public class Main {
         customLogger.log("TEAM: " + team.getNameOfTeam().toUpperCase());
         customLogger.log("FUNCTIONAL: " + functional.toString());
         customLogger.log("The PRICE for this application will be:");
-        customLogger.log(cost + "$");
+        calculatorCost.start();
 
         //Write info about Employees and Technicks to the file
-        team.sortEmployeesBySurname();
         team.writeInfoToTheFile();
         customLogger.log("Wrote info about Team to the file infoEmployees.txt");
         technicks.writeInfoToTheFile();

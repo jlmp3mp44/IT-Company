@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public final class CalculatorCost implements CalculatorCostInterface {
+public final class CalculatorCost extends Thread implements CalculatorCostInterface {
     private static final Logger LOGGER = LogManager.getLogger(CalculatorCost.class);
     private Customer customer;
     private Functional functional;
@@ -21,6 +21,7 @@ public final class CalculatorCost implements CalculatorCostInterface {
 
 
     public CalculatorCost(Customer customer, Functional functional, Company company) {
+        super();
         this.customer = customer;
         this.functional = functional;
         this.company = company;
@@ -88,6 +89,8 @@ public final class CalculatorCost implements CalculatorCostInterface {
     }
 
     //calculate the full cost of application
+
+
     public int calculateCost() {
         int fullCost = 0;
         int additionalCost = 0;
@@ -132,6 +135,11 @@ public final class CalculatorCost implements CalculatorCostInterface {
             LOGGER.error(e.getMessage());
         }
         return fullCost;
+    }
+    @Override
+    public void run() {
+        int result = calculateCost();
+        LOGGER.info("Result: " + result + " $");
     }
 
     public void validateBudgetAndPrice(int cost) throws CostApplicationExpensiveException {
